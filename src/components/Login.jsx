@@ -14,7 +14,7 @@ const Login = () => {
                 />
                 <div className="row mt-5">
                     <div className="col-md-6">
-                        <img src={require('../images/bk.jpg')} width="600px" alt="" />
+                        <img src={require('../images/bk.jpg')} className="img-fluid" width="600px" alt="" />
                     </div>
                     <div className="col-md-6 ms-auto my-5">
                         <h3 className='font-fam-roboto mb-4'>Fill up the details</h3>
