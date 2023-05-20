@@ -1,0 +1,19 @@
+{
+  "name": "american-express-backend",
+  "version": "1.0.0",
+  "description": "American Express is a bank which stores the money of the customer and provide them the facility of deposting, transferring and checking the balance.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
