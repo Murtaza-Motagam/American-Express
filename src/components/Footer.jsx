@@ -12,13 +12,13 @@ const Footer = () => {
 
                             <div className="col-lg-4 col-md-6">
                                 <div className="footer-info">
-                                    <h3>Squadfree</h3>
-                                    <p className="pb-3"><em>Qui repudiandae et eum dolores alias sed ea. Qui suscipit veniam excepturi quod.</em></p>
+                                    <h3>American-Express</h3>
+                                    <p className="pb-3"><em>Contact us on our customer helpline number to get connect with you.</em></p>
                                     <p>
                                         A108 Adam Street <br/>
                                             NY 535022, USA<br/><br/>
-                                                <strong>Phone:</strong> +1 5589 55488 55<br/>
-                                                    <strong>Email:</strong> info@example.com<br/>
+                                                <strong>Phone: </strong> +1 5589 55488 55<br/>
+                                                    <strong>Email: </strong> customerhelp@americanexpress.com<br/>
                                                     </p>
                                                     <div className="social-links mt-3">
                                                         <Link to="/" className="twitter"><i className="bx bxl-twitter"></i></Link>
@@ -44,19 +44,19 @@ const Footer = () => {
                                                 <div className="col-lg-2 col-md-6 footer-links">
                                                     <h4>Our Services</h4>
                                                     <ul>
-                                                        <li><i className="bx bx-chevron-right"></i> <Link to="/">Web Design</Link></li>
-                                                        <li><i className="bx bx-chevron-right"></i> <Link to="/">Web Development</Link></li>
+                                                        <li><i className="bx bx-chevron-right"></i> <Link to="/">Money Deposit</Link></li>
+                                                        <li><i className="bx bx-chevron-right"></i> <Link to="/">Money Transaction</Link></li>
                                                         <li><i className="bx bx-chevron-right"></i> <Link to="/">Product Management</Link></li>
-                                                        <li><i className="bx bx-chevron-right"></i> <Link to="/">Marketing</Link></li>
-                                                        <li><i className="bx bx-chevron-right"></i> <Link to="/">Graphic Design</Link></li>
+                                                        <li><i className="bx bx-chevron-right"></i> <Link to="/">Credit card apply</Link></li>
+                                                        <li><i className="bx bx-chevron-right"></i> <Link to="/">Apply for Check book</Link></li>
                                                     </ul>
                                                 </div>
 
                                                 <div className="col-lg-4 col-md-6 footer-newsletter">
-                                                    <h4>Our Newsletter</h4>
-                                                    <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                                                    <h4>Our Portfolio</h4>
+                                                    <p>Bank oriented services.</p>
                                                     <form action="" method="post">
-                                                        <input type="email" name="email"/><input type="submit" value="Subscribe"/>
+                                                        <input type="text" className='textbox-fix' placeholder="Enter your query..."  name="query"/><input type="submit" value="Send Message"/>
                                                         </form>
 
                                                         </div>
