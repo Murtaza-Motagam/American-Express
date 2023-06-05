@@ -11,6 +11,7 @@ app.use(express.json());
 
 // Routers Section starts here
 app.use('/api/auth', require('./routes/auth'))
+app.use('/api/operations', require('./routes/operations'))
 
 // Server Start Here
 

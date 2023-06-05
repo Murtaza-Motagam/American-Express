@@ -31,6 +31,9 @@ const AccholderSchema = new Schema ({
     Mpin_No: {
         type: String
     },
+    Balance: {
+        type: Number
+    },
     date: {
         type: Date,
         default: Date.now

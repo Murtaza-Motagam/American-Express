@@ -4,6 +4,8 @@ import { Link, useNavigate } from 'react-router-dom'
 
 const SavingAccount = (props) => {
 
+    // API Functions
+
     const [credentials, setCredentials] = useState({ holdername: "", aadharno: "", pancardno: "", age: "", Mpin_No: "" });
     let navigate = useNavigate();
 
@@ -35,17 +37,20 @@ const SavingAccount = (props) => {
             // Saving the auth token in the local storge of the user
 
             localStorage.setItem('token', json.authtoken);
+            props.showAlert("Account Created Successfully ", "success");
             // props.showAlert("Account Created Successfully ", "success");
-            navigate('/');
+            navigate('/accountoverview');
             window.location.reload(false);
         }
         else {
-            // props.showAlert("Invalid Details ", "danger");
+            props.showAlert("Invalid Details ", "danger");
             console.log("Error Occurred account has not been created yet")
         }
     }
 
 
+
+    // Main Function
 
     return (
         <>
@@ -88,7 +93,7 @@ const SavingAccount = (props) => {
                                 </div>
                                 <div className="col-md-6 form-group">
                                     <label className="form-label font-fam-ssp fs-5">Set MPIN Number: </label>
-                                    <input type="number" className='form-control' placeholder='Eg: 123456' onChange={onChange} value={credentials.Mpin_No} autoComplete='off' minLength="6" maxLength="6" name="Mpin_No" id="" />
+                                    <input type="password" className='form-control' placeholder='Eg: 123456' onChange={onChange} value={credentials.Mpin_No} autoComplete='off' minLength="6" maxLength="6" name="Mpin_No" id="" />
                                 </div>
                             </div>
                             <div className="d-flex justify-content-between align-items-center">
@@ -108,8 +113,6 @@ const SavingAccount = (props) => {
                     </div>
                 </div>
             </div>
-
-
         </>
     )
 }

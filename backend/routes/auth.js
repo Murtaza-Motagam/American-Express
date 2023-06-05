@@ -17,7 +17,8 @@ router.post('/createaccount', [
     body('age', 'Enter your valid age above 18').isLength({ min: 2 }),
     body('accno'),
     body('CRN_No'),
-    body('Mpin_No', 'Enter valid mpin number').isLength({ min: 6, max: 6 })
+    body('Mpin_No', 'Enter valid mpin number').isLength({ min: 6, max: 6 }),
+    body('Balance')
 ], async (req, res) => {
 
     let success = false;
@@ -90,6 +91,8 @@ router.post('/createaccount', [
         const salt = await bcrypt.genSalt(10);
         const secMpin_No = await bcrypt.hash(req.body.Mpin_No, salt)
 
+        let balance = 40000;
+
 
         holder = await Accholder.create({
             holdername: req.body.holdername,
@@ -98,7 +101,8 @@ router.post('/createaccount', [
             age: req.body.age,
             Mpin_No: secMpin_No,
             accno: Account_No,
-            CRN_No: crn_number
+            CRN_No: crn_number,
+            Balance: balance
         });
 
         const data = {
@@ -111,7 +115,7 @@ router.post('/createaccount', [
 
         success = true;
 
-        res.json({ success, authtoken, Account_No, crn_number });
+        res.json({ success, authtoken, Account_No, crn_number, balance });
 
 
     }
@@ -151,14 +155,14 @@ router.post('/login', [
             return res.status(400).json({ success, error: "please try to login with correct credentials" });
         }
 
-        const mpinCompare =  bcrypt.compare(Mpin_No, holder.Mpin_No);
+        const mpinCompare = bcrypt.compare(Mpin_No, holder.Mpin_No);
 
-        if(!mpinCompare) {
+        if (!mpinCompare) {
             return res.status(400).json({ errror: "please try to login with correct credentials" });
         }
 
         else {
-            
+
             const data = {
                 holder: {
                     id: holder.id
@@ -179,21 +183,60 @@ router.post('/login', [
 
 // Route-3: Fetch user entire data.
 
-router.post('/getuser', fetchuser,  async (req, res) => {
+router.post('/getuser', fetchuser, async (req, res) => {
 
     try {
- 
-       let userId = req.holder.id;
-       const user = await Accholder.findById(userId).select("-Mpin_No");
-       res.send([user]);
-    } 
-    catch (error) {
-       console.error(error.message);
-       res.status(500).send("Internal Server Error");
+
+        let userId = req.holder.id;
+        const user = await Accholder.findById(userId).select("-Mpin_No");
+        res.send([user]);
     }
- 
- })
+    catch (error) {
+        console.error(error.message);
+        res.status(500).send("Internal Server Error");
+    }
+
+})
 
 
+// Route-4: Fetch user balance data
+
+// router.put('/updatebalance/:id', fetchuser, async (req, res) => {
+
+//     const { amount } = req.body;
+//     let success = false;
+
+//     try {
+//         // create a new note object
+
+//         let newAmount = "";
+
+//         if (amount) {
+//             newAmount = amount;
+//         }
+
+//         let getBalance = await Accholder.findById(req.params.id);
+
+//         let getBAmount = getBalance.Balance;
+//         let finalBalance = getBAmount - newAmount;
+
+//         const updateBalance = await Accholder.findByIdAndUpdate(req.params.id, {
+//             $set: {
+//                 Balance: finalBalance
+//             }
+//         }, { new: true });
+
+
+//         success = true;
+
+//         res.json({ success, updateBalance, finalBalance });
+
+
+//     }
+//     catch (error) {
+//         console.error(error.message);
+//         res.status(500).send("Some error occurred");
+//     }
+// })
 
 module.exports = router;

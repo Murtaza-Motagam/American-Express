@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 
-const Login = () => {
+const Login = (props) => {
 
 
     const [credentials, setCredentials] = useState({ CRN_No: "", Mpin_No: "" });
@@ -24,17 +24,16 @@ const Login = () => {
         });
 
         const json = await response.json()
-
+ 
         if(json.success){
             // Saving the auth token in the local storge of the user
             localStorage.setItem('token', json.authtoken);
-            // props.showAlert(" Your are Logged in Successfully ", "success ");
-            console.log("You are now logged in.")
             navigate('/');
+            props.showAlert(" Your are Logged in Successfully ", "success ");
             window.location.reload(false);
         }
         else{
-            // props.showAlert(" Invalid Credentials Try again using correct details", "danger ");
+            props.showAlert(" Invalid Credentials Try again using correct details", "danger ");
             console.log("Try using proper credentials");
         }
     }

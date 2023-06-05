@@ -1,73 +1,89 @@
 import React from 'react'
+import { Link } from "react-router-dom"
 
 const AccountDetails = (props) => {
 
     const { user } = props;
 
+    const showBalance = () => {
+        document.getElementById("balance").style.display = "block";
+    }
+
 
     return (
-            <div>
-                <div className="row mb-2 ">
-                    <div className="col-md-6 ">
-                        <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                            <div className="col p-4 bg-light d-flex flex-column position-static">
-                                <h4 className="mb-0 font-fam-poppins">Account Holder</h4>
-                                <input type="text" value={user.holdername} className="fs-3 font-fam-roboto text-grey my-3 form-control" readOnly />
-                            </div>
-                            <div className="col-auto d-none d-lg-block">
+        <>
+            <div className="container-fluid p-4 bg-sb-container">
+                <h3 className='fw-bold font-fam-roboto  text-center mt-5'>Account Dashboard</h3>
+                <p className="font-fam-roboto text-dark-grey text-center mb-3">Welcome to American-express
+                    <br />
+                    Download the app and use.</p>
 
+                <div className="row">
+
+                    <div className="col-md-8 p-2 mx-auto bg-white border-r-custom-2">
+
+                        {/* 1st section */}
+
+                        <div className="d-flex justify-content-between align-items-center">
+                            <div className="col-4 mt-4">
+                                <div className="row g-0  rounded overflow-hidden flex-md-row mb-4  h-md-250 position-relative">
+                                    <div className="col p-4 d-flex flex-column position-static">
+                                        <p className="mb-0 brand-look fs-5 fw-bold font-fam-roboto">Your Account Number</p>
+                                        <p className="mb-0 text-dark fs-5 font-fam-roboto my-2">{user.accno}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <Link className='text-danger font-fam-poppins fw-bold me-5 fs-5'> <i className="fas fa-solid fa-share me-1" style={{ color: "#ff0000" }}></i>Copy & Share</Link>
+                        </div>
+
+                        <hr />
+                        {/* 2nd section */}
+
+                        <div className="d-flex justify-content-between align-items-center">
+                            <div className="col-8">
+                                <div className="row g-0  rounded overflow-hidden flex-md-row mb-4  h-md-250 position-relative">
+                                    <div className="col p-4 d-flex flex-column position-static">
+                                        <p className="mb-0 brand-look fs-5 fw-bold font-fam-roboto">Your CRN</p>
+                                        <p className="mb-0 text-dark fs-5 font-fam-roboto my-2">{user.CRN_No}</p>
+                                    </div>
+                                    <div className="col p-4 d-flex flex-column position-static">
+                                        <p className="mb-0 brand-look fs-5 fw-bold font-fam-roboto">Account Holdername</p>
+                                        <p className="mb-0 text-dark fs-5 font-fam-roboto my-2">{user.holdername}</p>
+                                    </div>
+                                    <div className="col p-4 d-flex flex-column position-static ms-2">
+                                        <p className="mb-0 brand-look fs-5 fw-bold font-fam-roboto" style={{cursor: "pointer"}} onClick={showBalance}>View Balance</p>
+                                        <p id="balance" style={{display: "none"}} className="mb-0 text-dark fs-5 font-fam-roboto my-2 fw-bold">{user.Balance}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="col-md-6">
-                        <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                            <div className="col p-4 bg-light d-flex flex-column position-static">
-                                <h4 className="mb-0 font-fam-poppins font-fam-roboto">Account No: </h4>
-                                <input type="text" value={user.accno} className="fs-3 font-fam-roboto text-grey my-3 form-control" readOnly />
-                            </div>
-                            <div className="col-auto d-none d-lg-block">
 
+                    </div>
+                </div>
+
+                <div className="row ">
+                    <div className="col-md-8 d-flex justify-content-between align-items-center p-3 mx-auto bg-white border-r-custom">
+                        <div className="col-5">
+                            <h4 className='font-fam-roboto fw-bold fs-5 px-3'>Congratulation! You are now eligible for applying the credit card against a fixed deposit.</h4>
+                            <div className="list-group my-3 " style={{ border: "none!important" }}>
+                                <Link to="/" className="list-group-item list-group-item-action" aria-current="true">
+                                    <i className="fa-sharp fa-solid fa-up-right-from-square fa-lg me-2" style={{ color: "#000000" }}></i> Book Fixed Deposit
+                                </Link>
+                                <Link to="/" className="list-group-item list-group-item-action" ><i className="fa-sharp fa-solid fa-up-right-from-square fa-lg me-2" style={{ color: "#000000" }}></i> Apply For Golden Card.</Link>
+                                <Link to="/" className="list-group-item list-group-item-action"><i className="fa-sharp fa-solid fa-up-right-from-square fa-lg me-2" style={{ color: "#000000" }}></i> 500$ reward point on apply new scheme debit card.</Link>
+                                <Link to="/" className="list-group-item list-group-item-action"><i className="fa-sharp fa-solid fa-up-right-from-square fa-lg me-2" style={{ color: "#000000" }}></i> Get a free 8$ by opening a DEMAT account.</Link>
                             </div>
+                        </div>
+                        <div className="col-6">
+                            <img src={require('../images/creditcard.jpg')} width="700px" className="img-fluid border-r-extreme" alt="" />
                         </div>
                     </div>
                 </div>
 
-                <div className="row mb-2 ">
-                    <div className="col-md-4" >
-                        <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                            <div className="col p-4 bg-light d-flex flex-column position-static">
-                                <h4 className="mb-0 font-fam-poppins">Aadhar Card: </h4>
-                                <input type="text" value={user.aadharno} className="fs-3 font-fam-roboto text-grey my-3 form-control" readOnly />
-                            </div>
-                            <div className="col-auto d-none d-lg-block">
+            </div >
+        </>
 
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-md-4">
-                        <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                            <div className="col bg-light p-4 d-flex flex-column position-static">
-                                <h4 className="mb-0 font-fam-poppins">Pancard No: </h4>
-                                <input type="text" value={user.pancardno} className="fs-3 font-fam-roboto text-grey my-3 form-control" readOnly />
-                            </div>
-                            <div className="col-auto d-none d-lg-block">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-md-4">
-                        <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                            <div className="col bg-light p-4 d-flex flex-column position-static">
-                                <h4 className="mb-0 font-fam-poppins">CRN No: </h4>
-                                <input type="text" value={user.CRN_No} className="fs-3 font-fam-roboto text-grey my-3 form-control" readOnly />
-                            </div>
-                            <div className="col-auto d-none d-lg-block">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
     )
 }
 

@@ -1,9 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Outlet, useLocation } from 'react-router-dom'
 
 
 const Navbar = () => {
 
+    let location = useLocation();
 
 
     return (
@@ -19,12 +20,12 @@ const Navbar = () => {
 
                     <nav id="navbar" className="navbar">
                         <ul>
-                            <li><Link className="nav-link scrollto" to="/">Business</Link></li>
+                            <li><Link className={`nav-link scrollto ${location.pathname === "/" ? "active" : ""}`} to="/">Business</Link></li>
                             <li><Link className="nav-link scrollto" to="/">Corporate</Link></li>
                             <li><Link className="nav-link scrollto" to="/">Private Banking</Link></li>
-                            <li className="dropdown"><Link to="/services"><span>Services</span> <i className="bi bi-chevron-down"></i></Link>
+                            <li className="dropdown"><Link to="/services"><span className={`${location.pathname === "/services" ? "active" : ""}`}>Services</span> <i className="bi bi-chevron-down"></i></Link>
                                 <ul>
-                                    <li><Link to="/opensavingsaccount">Open Savings Acount</Link></li>
+                                    <li><Link to="opensavingsaccount">Open Savings Acount</Link></li>
                                     <li><Link to="/">Open Current Acount</Link></li>
                                     <li><Link to="/">Open Business Acount</Link></li>
                                     <li><Link to="/">Open FD For Long-term</Link></li>
@@ -40,19 +41,25 @@ const Navbar = () => {
                                     </li>
                                 </ul>
                             </li>
-                            <li><Link className="nav-link scrollto" to="/cta">About AS</Link></li>
-                            <li><Link className="nav-link scrollto" to="/contact">Contact</Link></li>
+                            <li><Link className={`nav-link scrollto ${location.pathname === "/about" ? "active" : ""} `} to="/about">About AS</Link></li>
+
+                            <li><Link className={`nav-link scrollto  ${location.pathname === "/contact" ? "active" : ""}`} to="/contact">Contact</Link></li>
+
                             {!localStorage.getItem('token') ?
-                                <li><Link className="nav-link scrollto" to="/login">Login</Link></li> :
-                                <li><Link className="nav-link scrollto" to="/myaccount">My Account</Link></li>
+                                <li><Link className={`nav-link scrollto ${location.pathname === "/login" ? "active" : ""}`} to="/login">Login</Link></li> :
+                                
+                                <li><Link className={`nav-link scrollto ${location.pathname === "/profile" ? "active" : ""}`} to="/profile">My Account</Link></li>
                             }
                         </ul>
-                        
-                        <i className="bi bi-list mobile-nav-toggle"></i>    
+
+                        <i className="bi bi-list mobile-nav-toggle"></i>
                     </nav>
 
                 </div>
             </header>
+
+
+            <Outlet/>
 
 
         </>

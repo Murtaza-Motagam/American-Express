@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Navbar from './components/Navbar';
 import Services from './components/Services';
 import Contact from './components/Contact';
-import Cta from './components/Cta';
+import About from './components/About';
 import Home from './components/Home';
 import Footer from './components/Footer';
 import Login from './components/Login';
@@ -11,10 +11,28 @@ import SavingAccount from './components/SavingAccount';
 import Profile from './components/Profile';
 import AccountOverview from './components/AccountOverview';
 import NoteState from './context/NoteState';
+import Alert from './components/Alert';
+import TransferAmount from './components/TransferAmount';
+
 
 
 
 function App() {
+
+  const [alert, setAlert] = useState(null);
+
+  const showAlert = (message, type) => {
+    setAlert({
+      msg: message,
+      type: type,
+    });
+
+    setTimeout((showAlert) => {
+      setAlert(null);
+    }, 55000);
+  };
+
+
   return (
     <>
       <NoteState>
@@ -25,25 +43,29 @@ function App() {
           <br />
           <br />
           <br />
-          <Routes>
-            <Route>
+          <br />
+          <Alert alert={alert} />
 
+
+          <Routes>
+
+            <Route>
               <Route exact path="/" index element={<Home />} />
               <Route exact path="/services" element={<Services />} />
               <Route exact path="/contact" element={<Contact />} />
-              <Route exact path="/cta" element={<Cta />} />
-              <Route exact path="/login" element={<Login />} />
-              <Route exact path="/opensavingsaccount" element={<SavingAccount />} />
-              <Route exact path="/myaccount" element={<Profile />} />
+              <Route exact path="/about" element={<About />} />
+              <Route exact path="/login" element={<Login showAlert={showAlert} />} />
+              <Route exact path="/opensavingsaccount" element={<SavingAccount showAlert={showAlert} />} />
               <Route exact path="/accountoverview" element={<AccountOverview />} />
-
+              <Route exact path="/profile" element={<Profile />} />
+              <Route exact path="/transfer" element={<TransferAmount showAlert={showAlert}/>} />
             </Route>
           </Routes>
 
           <Footer />
 
         </BrowserRouter>
-      </NoteState>
+      </NoteState >
     </>
   );
 }

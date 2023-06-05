@@ -19,63 +19,113 @@ body {
   color: #444444;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 a {
   text-decoration: none;
   color: #67b0d1;
 }
 
-.font-fam-roboto{
+.font-fam-roboto {
   font-family: 'Roboto', sans-serif;
 }
-.font-fam-ssp{
+
+.font-fam-ssp {
   font-family: 'Source Sans Pro', sans-serif;
 }
-.font-fam-poppins{
+
+.font-fam-poppins {
   font-family: 'Poppins', sans-serif;
 }
 
-.brand-look{
+.brand-look {
   color: #002D62;
 }
-.brand-look-2{
+
+.brand-look-2 {
   color: #3457D5;
 }
 
-.text-grey{
+.bg-brand {
+  background: #bdc7ed;
+}
+
+.active {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  padding: 7px 20px;
+}
+
+
+.text-grey {
   color: rgb(184, 180, 180);
 }
-.text-link{
+
+.text-dark-grey {
+  color: rgb(143, 139, 139);
+}
+
+.text-link {
   color: #3457D5;
   text-decoration: underline;
   font-size: 13px;
 }
 
-.bs-1{
+.bs-1 {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
-.logoutHover:hover{
-  color: red!important;
+.bg-sb-container {
+  background: #bae3ee;
 }
 
-.border-r-1{
+.logout-hover .nav-link{
+  color: black;
+
+}
+.logout-hover:hover > .nav-link{
+  background-color: rgb(235, 62, 62) !important;
+  color: white;
+  font-weight: bold;
+}
+
+.border-r-1 {
   border-radius: 10px;
 }
 
-.acc-border{
+.border-r-custom {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.border-r-custom-2 {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.border-r-extreme {
+  border-radius: 30px;
+}
+
+.acc-border {
   border-right: 3px solid black;
 }
 
-.margin-nav{
+.margin-nav {
   margin-top: -8px;
-  
+
 }
 
-.textbox-fix{
+.textbox-fix {
   border: none;
   outline: none;
   background: none;
 }
+
 /* Button css */
 
 /* CSS */
@@ -88,7 +138,7 @@ a {
   color: #FFFFFF;
   cursor: pointer;
   display: inline-block;
-  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
   font-size: 16px;
   font-weight: 800;
   line-height: 16px;
@@ -146,7 +196,7 @@ a {
 }
 
 .button-18:hover,
-.button-18:focus { 
+.button-18:focus {
   background-color: #16437E;
   color: #ffffff;
 }
@@ -156,7 +206,7 @@ a {
   color: rgb(255, 255, 255, .7);
 }
 
-.button-18:disabled { 
+.button-18:disabled {
   cursor: not-allowed;
   background: rgba(0, 0, 0, .08);
   color: rgba(0, 0, 0, .3);
@@ -171,7 +221,7 @@ a {
   box-sizing: border-box;
   color: #FFFFFF;
   cursor: pointer;
-  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
@@ -196,7 +246,7 @@ a {
   cursor: pointer;
   display: inline-flex;
   fill: #000;
-  font-family: Inter,sans-serif;
+  font-family: Inter, sans-serif;
   font-size: 16px;
   font-weight: 600;
   height: 48px;
@@ -307,9 +357,6 @@ h6 {
   background: rgba(65, 174, 225, 0.8);
 }
 
-#header.header-transparent {
-  /* background: transparent; */
-}
 
 #header.header-scrolled {
   background: rgba(55, 142, 181, 0.9);
@@ -342,6 +389,15 @@ h6 {
   #header.header-scrolled {
     padding: 15px 0;
   }
+}
+
+.hover-links .nav-link{
+  color: black;
+}
+.hover-links:hover {
+  background-color: rgb(234, 232, 232) !important;
+  color: white!important;
+  border-radius: 7px;
 }
 
 /*--------------------------------------------------------------
@@ -394,6 +450,8 @@ h6 {
 .navbar .active:focus,
 .navbar li:hover>a {
   background: rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  padding: 7px 20px;
 }
 
 .navbar .dropdown ul {

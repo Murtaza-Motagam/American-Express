@@ -13,8 +13,8 @@ const Contact = () => {
                 <div className="container mt-5" data-aos="fade-up">
 
                     <div className="section-title">
-                        <h2>Contact</h2>
-                        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                        <h2>Contact AS</h2>
+                        <p>Write your queries to let us know what issue you are currently facing related to your account.</p>
                     </div>
 
                     <div className="row">
@@ -22,7 +22,7 @@ const Contact = () => {
                             <div className="info-box mb-4">
                                 <i className="bx bx-map"></i>
                                 <h3>Our Address</h3>
-                                <p>A108 Adam Street, New York, NY 535022</p>
+                                <p>A108 Vinston street, Killsburgh, Utah 535021</p>
                             </div>
                         </div>
 
@@ -30,7 +30,7 @@ const Contact = () => {
                             <div className="info-box  mb-4">
                                 <i className="bx bx-envelope"></i>
                                 <h3>Email Us</h3>
-                                <p>contact@example.com</p>
+                                <p>helplineas21@example.com</p>
                             </div>
                         </div>
 
@@ -46,11 +46,7 @@ const Contact = () => {
 
                     <div className="row">
 
-                        <div className="col-lg-6 ">
-                            <iframe title="myFrame" className="mb-4 mb-lg-0" src="" style={{border:"0", width: "100%", height: "384px"}} allowFullScreen></iframe>
-                        </div>
-
-                        <div className="col-lg-6">
+                        <div className="col-lg-12 mx-auto">
                             <form className="php-email-form">
                                 <div className="row">
                                     <div className="col-md-6 form-group">
