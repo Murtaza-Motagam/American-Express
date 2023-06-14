@@ -38,6 +38,7 @@ const NoteState = (props) => {
             body: JSON.stringify({ amount, accno })
         });
         const json = await response.json();
+        console.log(json);
         
     }
 

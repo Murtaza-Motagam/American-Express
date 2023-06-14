@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Outlet, useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 
 const Navbar = () => {
@@ -9,57 +9,52 @@ const Navbar = () => {
 
     return (
         <>
-            <header id="header" className="fixed-top header-transparent">
-                <div className="container d-flex align-items-center justify-content-between position-relative">
 
-                    <div className="logo">
-
-                        <h1 className="mb-2 text-light"><i className="fas fs-3 fa-regular fa-building-columns me-2" style={{ color: "#ffffff" }}></i><Link className='fs-3' to="/">American-Express</Link></h1>
-                        <span className='ms-5 text-white fs-5'>America's most Trusted</span>
+            <nav className="navbar navbar-expand-lg ">
+                <div className="container py-2 bg-brand-2 nav-border bs-1 fixed-top mt-3">
+                    <div className="d-flex flex-column">
+                        <Link className="navbar-brand font-fam-ssp fs-3 text-white ms-3" to="/"><i className="fas fs-3 fa-regular fa-building-columns me-2" style={{ color: "#ffffff" }}></i>American-Express</Link>
                     </div>
-
-                    <nav id="navbar" className="navbar">
-                        <ul>
-                            <li><Link className={`nav-link scrollto ${location.pathname === "/" ? "active" : ""}`} to="/">Business</Link></li>
-                            <li><Link className="nav-link scrollto" to="/">Corporate</Link></li>
-                            <li><Link className="nav-link scrollto" to="/">Private Banking</Link></li>
-                            <li className="dropdown"><Link to="/services"><span className={`${location.pathname === "/services" ? "active" : ""}`}>Services</span> <i className="bi bi-chevron-down"></i></Link>
-                                <ul>
-                                    <li><Link to="opensavingsaccount">Open Savings Acount</Link></li>
-                                    <li><Link to="/">Open Current Acount</Link></li>
-                                    <li><Link to="/">Open Business Acount</Link></li>
-                                    <li><Link to="/">Open FD For Long-term</Link></li>
-                                    <li><Link to="/">Open NRI Account</Link></li>
-                                    <li className="dropdown"><Link to="/"><span>Other Services</span> <i className="bi bi-chevron-right"></i></Link>
-                                        <ul>
-                                            <li><Link to="/">Nada </Link></li>
-                                            <li><Link to="/">Nada </Link></li>
-                                            <li><Link to="/">Nada </Link></li>
-                                            <li><Link to="/">Nada</Link></li>
-                                            <li><Link to="/">Nada </Link></li>
-                                        </ul>
-                                    </li>
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse font-fam-poppins fs-5" id="navbarSupportedContent">
+                        <ul className="navbar-nav ms-auto mb-2 mb-lg-0 px-4">
+                            <li className="nav-item mx-2">
+                                <Link className={`nav-link px-3 text-white ${location.pathname === "/" ? "active" : ""}`} aria-current="page" to="/">Business</Link>
+                            </li>
+                            <li className="nav-item mx-2">
+                                <Link className="nav-link px-3 text-white" to="/">Corporate</Link>
+                            </li>
+                            <li className="nav-item mx-2 dropdown">
+                                <Link className={`nav-link dropdown-toggle text-white ${location.pathname === "/services" ? "active" : ""}`} to="/services" data-bs-toggle="dropdown" role="button" aria-expanded="false">
+                                    Services
+                                </Link>
+                                <ul className="dropdown-menu bg-brand-2">
+                                    <li className="dropdown-item"><Link className="dropdown-hover text-white font-fam-roboto fs-5" to="opensavingsaccount">Open Savings Acount</Link></li>
+                                    <li className="dropdown-item"><Link className="dropdown-hover text-white font-fam-roboto fs-5" to="/">Open Current Acount</Link></li>
+                                    <li className="dropdown-item"><Link className="dropdown-hover text-white font-fam-roboto fs-5" to="/">Open Business Acount</Link></li>
+                                    <li className="dropdown-item"><Link className="dropdown-hover text-white font-fam-roboto fs-5" to="/">Open FD For Long-term</Link></li>
+                                    <li className="dropdown-item"><Link className="dropdown-hover text-white font-fam-roboto fs-5" to="/">Open NRI Account</Link></li>
                                 </ul>
                             </li>
-                            <li><Link className={`nav-link scrollto ${location.pathname === "/about" ? "active" : ""} `} to="/about">About AS</Link></li>
+                            <li className="nav-item mx-2">
+                                <Link className={`nav-link px-3 text-white ${location.pathname === "/about" ? "active" : ""}`} to="/about" >About</Link>
+                            </li>
+                            <li className="nav-item mx-2">
+                                <Link className={`nav-link px-3 text-white ${location.pathname === "/contact" ? "active" : ""} `} to="/contact">Contact</Link>
+                            </li>
+                            <li className="nav-item mx-2">
+                                {!localStorage.getItem('token') ?
+                                    <Link className={`nav-link px-3 text-white scrollto ${location.pathname === "/login" ? "active" : ""}`} to="/login">Login</Link> :
 
-                            <li><Link className={`nav-link scrollto  ${location.pathname === "/contact" ? "active" : ""}`} to="/contact">Contact</Link></li>
-
-                            {!localStorage.getItem('token') ?
-                                <li><Link className={`nav-link scrollto ${location.pathname === "/login" ? "active" : ""}`} to="/login">Login</Link></li> :
-                                
-                                <li><Link className={`nav-link scrollto ${location.pathname === "/profile" ? "active" : ""}`} to="/profile">My Account</Link></li>
-                            }
+                                    <Link className={`nav-link px-3 text-white scrollto ${location.pathname === "/profile" ? "active" : ""}`} to="/profile">My Account</Link>
+                                }
+                            </li>
                         </ul>
-
-                        <i className="bi bi-list mobile-nav-toggle"></i>
-                    </nav>
-
+                    </div>
                 </div>
-            </header>
-
-
-            <Outlet/>
+            </nav>
 
 
         </>
