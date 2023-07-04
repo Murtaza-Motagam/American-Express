@@ -196,47 +196,6 @@ router.post('/getuser', fetchuser, async (req, res) => {
         res.status(500).send("Internal Server Error");
     }
 
-})
-
-
-// Route-4: Fetch user balance data
-
-// router.put('/updatebalance/:id', fetchuser, async (req, res) => {
-
-//     const { amount } = req.body;
-//     let success = false;
-
-//     try {
-//         // create a new note object
-
-//         let newAmount = "";
-
-//         if (amount) {
-//             newAmount = amount;
-//         }
-
-//         let getBalance = await Accholder.findById(req.params.id);
-
-//         let getBAmount = getBalance.Balance;
-//         let finalBalance = getBAmount - newAmount;
-
-//         const updateBalance = await Accholder.findByIdAndUpdate(req.params.id, {
-//             $set: {
-//                 Balance: finalBalance
-//             }
-//         }, { new: true });
-
-
-//         success = true;
-
-//         res.json({ success, updateBalance, finalBalance });
-
-
-//     }
-//     catch (error) {
-//         console.error(error.message);
-//         res.status(500).send("Some error occurred");
-//     }
-// })
+});
 
 module.exports = router;
